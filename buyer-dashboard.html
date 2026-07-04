@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة المشتري — سوق سينا</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sb-logo"><div class="mark">سس</div><div class="name">سوق سينا</div></div>
+    <nav class="sb-nav">
+      <a class="sb-link active" href="buyer-dashboard.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        لوحة التحكم
+      </a>
+      <a class="sb-link" href="rfq-new.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg>
+        طلب عرض سعر جديد
+      </a>
+      <a class="sb-link" href="rfq-detail.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        طلباتي النشطة
+      </a>
+      <a class="sb-link" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg>
+        تصفح المصانع
+      </a>
+      <a class="sb-link" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.34 1.87l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.7 1.7 0 00-1.87-.34 1.7 1.7 0 00-1 1.55V21a2 2 0 11-4 0v-.09a1.7 1.7 0 00-1-1.55 1.7 1.7 0 00-1.87.34l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.7 1.7 0 00.34-1.87 1.7 1.7 0 00-1.55-1H3a2 2 0 110-4h.09a1.7 1.7 0 001.55-1 1.7 1.7 0 00-.34-1.87l-.06-.06a2 2 0 112.83-2.83l.06.06a1.7 1.7 0 001.87.34H9a1.7 1.7 0 001-1.55V3a2 2 0 114 0v.09a1.7 1.7 0 001 1.55 1.7 1.7 0 001.87-.34l.06-.06a2 2 0 112.83 2.83l-.06.06a1.7 1.7 0 00-.34 1.87V9a1.7 1.7 0 001.55 1H21a2 2 0 110 4h-.09a1.7 1.7 0 00-1.55 1z"/></svg>
+        الإعدادات
+      </a>
+    </nav>
+    <div class="sb-foot">
+      <div class="sb-avatar">شح</div>
+      <div>
+        <div style="color:#fff; font-size:13.5px;">شركة الحمد للتوزيع</div>
+        <div style="font-size:12px;">مشترٍ · جدة</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <h1>مرحباً، شركة الحمد للتوزيع</h1>
+        <p>نظرة عامة على طلبات عروض الأسعار والصفقات النشطة</p>
+      </div>
+      <a href="rfq-new.html" class="btn btn-brass">+ طلب عرض سعر جديد</a>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi"><div class="label">طلبات عروض نشطة</div><div class="value mono">4</div><div class="delta up">+1 هذا الأسبوع</div></div>
+      <div class="kpi"><div class="label">عروض بانتظار المراجعة</div><div class="value mono">7</div><div class="delta up">من 3 مصانع</div></div>
+      <div class="kpi"><div class="label">في الضمان التجاري</div><div class="value mono">128,400 ر.س</div><div class="delta">صفقتان قيد التنفيذ</div></div>
+      <div class="kpi"><div class="label">صفقات مكتملة</div><div class="value mono">11</div><div class="delta up">بدون نزاعات</div></div>
+    </div>
+
+    <div class="sec-title"><h2>طلبات عروض الأسعار</h2><a href="#" class="btn btn-sm">عرض الكل</a></div>
+    <div class="card" style="padding:0; margin-bottom:34px;">
+      <table>
+        <thead><tr><th>الطلب</th><th>الفئة</th><th>الكمية</th><th>العروض المستلمة</th><th>الحالة</th><th>آخر تحديث</th></tr></thead>
+        <tbody>
+          <tr class="row-link" onclick="location.href='rfq-detail.html'">
+            <td>علب تغليف كرتونية مموجة</td><td>تغليف الأغذية</td><td>50,000 وحدة</td><td>3 عروض</td>
+            <td><span class="badge badge-amber">بانتظار الاختيار</span></td><td class="mono">قبل 3 ساعات</td>
+          </tr>
+          <tr class="row-link" onclick="location.href='rfq-detail.html'">
+            <td>أكياس بلاستيكية قابلة لإعادة التدوير</td><td>تغليف الأغذية</td><td>200,000 وحدة</td><td>2 عروض</td>
+            <td><span class="badge badge-navy">قيد المطابقة</span></td><td class="mono">أمس</td>
+          </tr>
+          <tr class="row-link" onclick="location.href='rfq-detail.html'">
+            <td>عبوات زجاجية للمربى 250مل</td><td>تغليف الأغذية</td><td>30,000 وحدة</td><td>5 عروض</td>
+            <td><span class="badge badge-green">تم تمويل الضمان</span></td><td class="mono">قبل يومين</td>
+          </tr>
+          <tr class="row-link" onclick="location.href='rfq-detail.html'">
+            <td>ملصقات ورقية مقاومة للماء</td><td>تغليف الأغذية</td><td>100,000 وحدة</td><td>0 عروض</td>
+            <td><span class="badge badge-red">بانتظار الردود</span></td><td class="mono">قبل 5 أيام</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sec-title"><h2>مصانع موصى بها لقطاعك</h2></div>
+    <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr);">
+      <div class="card">
+        <div class="factory-name">مصنع الخليج للتغليف <span class="badge badge-brass">موثّق</span></div>
+        <div class="factory-meta">الدمام، السعودية · تغليف أغذية · تصدير إلى الإمارات</div>
+      </div>
+      <div class="card">
+        <div class="factory-name">شركة النيل للبلاستيك <span class="badge badge-brass">موثّق</span></div>
+        <div class="factory-meta">القاهرة، مصر · تغليف مرن · شحن مباشر لجدة</div>
+      </div>
+      <div class="card">
+        <div class="factory-name">مصانع الوسيط الزجاجية <span class="badge badge-brass">موثّق</span></div>
+        <div class="factory-meta">جدة، السعودية · عبوات زجاجية · إنتاج محلي</div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>علب تغليف كرتونية مموجة — طلب عرض سعر</title>
+<link rel="stylesheet" href="app.css">
+<style>
+  .rfq-meta{ display:flex; gap:26px; flex-wrap:wrap; margin-bottom:30px; }
+  .rfq-meta .item{ font-size:14px; }
+  .rfq-meta .item span{ display:block; color:var(--slate); font-size:12.5px; margin-bottom:4px; }
+  .pay-option{
+    border:1px solid var(--line); border-radius:8px; padding:18px 20px; display:flex; align-items:center;
+    gap:14px; cursor:pointer; margin-bottom:12px; transition:border-color .15s ease;
+  }
+  .pay-option.selected{ border-color:var(--brass); box-shadow:0 0 0 1px var(--brass); }
+  .pay-option input{ width:auto; }
+  .pay-logo{
+    width:46px; height:28px; border-radius:4px; display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:11px; color:#fff; flex-shrink:0;
+  }
+  .pay-logo.tamara{ background:#1A1A2E; }
+  .pay-logo.full{ background:var(--navy-deep); }
+  .pay-detail{ font-size:13px; color:var(--slate); margin-top:2px; }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sb-logo"><div class="mark">سس</div><div class="name">سوق سينا</div></div>
+    <nav class="sb-nav">
+      <a class="sb-link" href="buyer-dashboard.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        لوحة التحكم
+      </a>
+      <a class="sb-link" href="rfq-new.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg>
+        طلب عرض سعر جديد
+      </a>
+      <a class="sb-link active" href="rfq-detail.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        طلباتي النشطة
+      </a>
+    </nav>
+    <div class="sb-foot">
+      <div class="sb-avatar">شح</div>
+      <div><div style="color:#fff; font-size:13.5px;">شركة الحمد للتوزيع</div><div style="font-size:12px;">مشترٍ · جدة</div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <h1>علب تغليف كرتونية مموجة</h1>
+        <p>3 عروض مستلمة · طلب رقم RFQ-2026-0417</p>
+      </div>
+      <span class="badge badge-amber" style="padding:9px 18px; font-size:13.5px;">بانتظار الاختيار</span>
+    </div>
+
+    <div class="rfq-meta card">
+      <div class="item"><span>الكمية</span>50,000 وحدة</div>
+      <div class="item"><span>الموعد المطلوب</span>خلال 3 أسابيع</div>
+      <div class="item"><span>الفئة</span>تغليف الأغذية</div>
+      <div class="item"><span>الميزانية التقديرية</span>85,000 ر.س</div>
+    </div>
+
+    <div class="sec-title" style="margin-top:34px;"><h2>مقارنة العروض المقدّمة</h2></div>
+
+    <div class="quote-card" id="quote-1">
+      <div>
+        <div class="factory-name">مصنع الخليج للتغليف <span class="badge badge-brass">موثّق</span></div>
+        <div class="factory-meta">الدمام، السعودية · تقييم 4.8/5 · 23 صفقة سابقة</div>
+        <div class="factory-meta">مدة التسليم: 18 يوماً · عيّنة متاحة خلال 4 أيام</div>
+      </div>
+      <div>
+        <div class="quote-price">79,500 ر.س</div>
+        <div class="quote-terms">1.59 ر.س / وحدة</div>
+        <button class="btn btn-sm btn-primary" style="margin-top:12px;" onclick="selectQuote(1)">اختيار وتمويل الضمان</button>
+      </div>
+    </div>
+
+    <div class="quote-card" id="quote-2">
+      <div>
+        <div class="factory-name">شركة النيل للبلاستيك <span class="badge badge-brass">موثّق</span></div>
+        <div class="factory-meta">القاهرة، مصر · تقييم 4.6/5 · 41 صفقة سابقة</div>
+        <div class="factory-meta">مدة التسليم: 26 يوماً · عيّنة متاحة خلال 6 أيام</div>
+      </div>
+      <div>
+        <div class="quote-price">71,000 ر.س</div>
+        <div class="quote-terms">1.42 ر.س / وحدة</div>
+        <button class="btn btn-sm btn-primary" style="margin-top:12px;" onclick="selectQuote(2)">اختيار وتمويل الضمان</button>
+      </div>
+    </div>
+
+    <div class="quote-card" id="quote-3">
+      <div>
+        <div class="factory-name">مصنع الرياض للورق والكرتون <span class="badge badge-brass">موثّق</span></div>
+        <div class="factory-meta">الرياض، السعودية · تقييم 4.9/5 · 15 صفقة سابقة</div>
+        <div class="factory-meta">مدة التسليم: 14 يوماً · عيّنة متاحة خلال 3 أيام</div>
+      </div>
+      <div>
+        <div class="quote-price">88,200 ر.س</div>
+        <div class="quote-terms">1.76 ر.س / وحدة</div>
+        <button class="btn btn-sm btn-primary" style="margin-top:12px;" onclick="selectQuote(3)">اختيار وتمويل الضمان</button>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="modal-overlay" id="escrow-modal">
+  <div class="modal">
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:22px;">
+      <h2 style="font-size:20px;">تمويل الضمان التجاري</h2>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+
+    <div class="card" style="background:var(--paper-2); border:none; margin-bottom:22px; padding:16px 18px;">
+      <div style="display:flex; justify-content:space-between; font-size:14px; margin-bottom:6px;">
+        <span id="modal-factory">مصنع الخليج للتغليف</span>
+        <span class="mono" id="modal-amount">79,500 ر.س</span>
+      </div>
+      <div style="font-size:12.5px; color:var(--slate);">يُحرَّر المبلغ للمصنع على مراحل، مرتبطة بفحص الجودة والتسليم</div>
+    </div>
+
+    <label style="margin-bottom:12px;">اختر طريقة تمويل الضمان</label>
+
+    <div class="pay-option selected" onclick="selectPay(this)">
+      <input type="radio" name="pay" checked>
+      <div class="pay-logo full">دفعة</div>
+      <div>
+        <div style="font-weight:500; font-size:14.5px;">دفع كامل المبلغ الآن</div>
+        <div class="pay-detail">تحويل بنكي أو مدى — يُحجز فوراً في الضمان</div>
+      </div>
+    </div>
+
+    <div class="pay-option" onclick="selectPay(this)">
+      <input type="radio" name="pay">
+      <div class="pay-logo tamara">tamara</div>
+      <div>
+        <div style="font-weight:500; font-size:14.5px;">تمويل عبر تمارا للأعمال</div>
+        <div class="pay-detail">سدد على دفعات؛ يستلم المصنع كامل القيمة فوراً عند التسليم</div>
+      </div>
+    </div>
+
+    <div id="tamara-details" style="display:none; margin:10px 0 20px; padding:16px 18px; background:var(--amber-bg); border-radius:8px;">
+      <div style="font-size:13px; color:var(--amber); margin-bottom:10px; font-weight:500;">تفاصيل خطة تمارا للأعمال</div>
+      <div class="field">
+        <label>مدة السداد</label>
+        <select>
+          <option>4 أشهر</option>
+          <option>6 أشهر</option>
+          <option>12 شهراً</option>
+        </select>
+      </div>
+      <div class="hint">يخضع السقف والموافقة النهائية لتقييم تمارا الائتماني للمنشأة، ويختلف عن منتج تمارا للأفراد. سيتم توجيهك لإكمال طلب التمويل مع تمارا مباشرة.</div>
+    </div>
+
+    <button class="btn btn-brass btn-block" onclick="confirmEscrow()">تأكيد وتحرير الطلب للمصنع</button>
+    <p style="font-size:12px; color:var(--slate); text-align:center; margin-top:14px;">هذا نموذج عرض — لا تتم أي معاملة مالية فعلية</p>
+  </div>
+</div>
+
+<script>
+  const quotes = {
+    1:{ name:'مصنع الخليج للتغليف', amount:'79,500 ر.س' },
+    2:{ name:'شركة النيل للبلاستيك', amount:'71,000 ر.س' },
+    3:{ name:'مصنع الرياض للورق والكرتون', amount:'88,200 ر.س' }
+  };
+  function selectQuote(id){
+    document.getElementById('modal-factory').textContent = quotes[id].name;
+    document.getElementById('modal-amount').textContent = quotes[id].amount;
+    document.getElementById('escrow-modal').classList.add('open');
+  }
+  function closeModal(){ document.getElementById('escrow-modal').classList.remove('open'); }
+  function selectPay(el){
+    document.querySelectorAll('.pay-option').forEach(o=>{ o.classList.remove('selected'); o.querySelector('input').checked=false; });
+    el.classList.add('selected');
+    el.querySelector('input').checked = true;
+    const isTamara = el.querySelector('.pay-logo').classList.contains('tamara');
+    document.getElementById('tamara-details').style.display = isTamara ? 'block' : 'none';
+  }
+  function confirmEscrow(){
+    alert('تم تحرير الطلب للمصنع وتأكيد تمويل الضمان. سيبدأ الإنتاج فور استلام التأكيد.');
+    closeModal();
+  }
+</script>
+</body>
+</html>

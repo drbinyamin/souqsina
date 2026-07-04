@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تسجيل الدخول — سوق سينا</title>
+<link rel="stylesheet" href="app.css">
+<style>
+  body{ background:var(--navy-deep); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px; }
+  .login-wrap{ width:100%; max-width:420px; }
+  .brand{ display:flex; flex-direction:column; align-items:center; margin-bottom:36px; }
+  .brand .mark{
+    width:56px; height:56px; border-radius:50%; border:1.5px solid var(--brass-light);
+    display:flex; align-items:center; justify-content:center; margin-bottom:16px;
+    font-family:'Markazi Text',serif; font-weight:700; color:var(--brass-light); font-size:24px;
+  }
+  .brand h1{ font-size:26px; color:#fff; }
+  .brand p{ font-size:13.5px; color:rgba(245,241,232,0.55); margin-top:6px; }
+  .panel{ background:var(--paper); border-radius:10px; padding:34px; }
+  .role-toggle{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:26px; background:var(--paper-2); padding:5px; border-radius:8px; }
+  .role-btn{
+    padding:11px; text-align:center; border-radius:6px; font-size:14px; font-weight:500;
+    color:var(--slate); cursor:pointer; transition:all .18s ease; border:none; background:none; font-family:inherit;
+  }
+  .role-btn.active{ background:var(--white); color:var(--navy-deep); box-shadow:0 1px 3px rgba(15,42,74,0.12); }
+  .demo-note{ text-align:center; font-size:12.5px; color:rgba(245,241,232,0.5); margin-top:22px; }
+  .divider{ display:flex; align-items:center; gap:12px; margin:22px 0; color:var(--slate); font-size:12.5px; }
+  .divider::before, .divider::after{ content:''; flex:1; height:1px; background:var(--line); }
+</style>
+</head>
+<body>
+  <div class="login-wrap">
+    <div class="brand">
+      <div class="mark">سس</div>
+      <h1>سوق سينا</h1>
+      <p>طبقة الثقة للتجارة الإقليمية</p>
+    </div>
+    <div class="panel">
+      <div class="role-toggle">
+        <button class="role-btn active" id="btn-buyer" onclick="setRole('buyer')">مشترٍ / تاجر جملة</button>
+        <button class="role-btn" id="btn-seller" onclick="setRole('seller')">مصنع / بائع</button>
+      </div>
+      <form id="login-form" onsubmit="return goDashboard(event)">
+        <div class="field">
+          <label>البريد الإلكتروني أو رقم الجوال</label>
+          <input type="text" placeholder="name@company.com" required>
+        </div>
+        <div class="field">
+          <label>كلمة المرور</label>
+          <input type="password" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-brass btn-block" id="submit-btn">دخول كمشترٍ</button>
+      </form>
+      <div class="divider">أو</div>
+      <button class="btn btn-block" onclick="alert('في هذا المثال، التسجيل غير مفعّل — هذا نموذج عرض فقط.')">إنشاء حساب جديد</button>
+    </div>
+    <p class="demo-note">هذا نموذج تجريبي لعرض تجربة المستخدم — لا حاجة لبيانات حقيقية</p>
+  </div>
+
+<script>
+  let role = 'buyer';
+  function setRole(r){
+    role = r;
+    document.getElementById('btn-buyer').classList.toggle('active', r==='buyer');
+    document.getElementById('btn-seller').classList.toggle('active', r==='seller');
+    document.getElementById('submit-btn').textContent = r==='buyer' ? 'دخول كمشترٍ' : 'دخول كمصنع/بائع';
+  }
+  function goDashboard(e){
+    e.preventDefault();
+    window.location.href = role === 'buyer' ? 'buyer-dashboard.html' : 'seller-dashboard.html';
+    return false;
+  }
+</script>
+</body>
+</html>

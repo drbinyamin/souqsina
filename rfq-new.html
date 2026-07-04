@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>طلب عرض سعر جديد — سوق سينا</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sb-logo"><div class="mark">سس</div><div class="name">سوق سينا</div></div>
+    <nav class="sb-nav">
+      <a class="sb-link" href="buyer-dashboard.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        لوحة التحكم
+      </a>
+      <a class="sb-link active" href="rfq-new.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg>
+        طلب عرض سعر جديد
+      </a>
+      <a class="sb-link" href="rfq-detail.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        طلباتي النشطة
+      </a>
+    </nav>
+    <div class="sb-foot">
+      <div class="sb-avatar">شح</div>
+      <div><div style="color:#fff; font-size:13.5px;">شركة الحمد للتوزيع</div><div style="font-size:12px;">مشترٍ · جدة</div></div>
+    </div>
+  </aside>
+
+  <main class="main" style="max-width:760px;">
+    <div class="topbar">
+      <div>
+        <h1>طلب عرض سعر جديد</h1>
+        <p>صف احتياجك بدقة ليصلك أفضل تطابق من المصانع الموثّقة</p>
+      </div>
+    </div>
+
+    <div class="stepper">
+      <div class="step active"><div class="dot">١</div>تفاصيل المنتج</div>
+      <div class="step-sep"></div>
+      <div class="step"><div class="dot">٢</div>الكمية والجدول</div>
+      <div class="step-sep"></div>
+      <div class="step"><div class="dot">٣</div>مراجعة ونشر</div>
+    </div>
+
+    <form class="card" onsubmit="return submitRFQ(event)">
+      <div class="field">
+        <label>عنوان الطلب</label>
+        <input type="text" placeholder="مثال: علب تغليف كرتونية مموجة" required>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>الفئة</label>
+          <select required>
+            <option value="">اختر الفئة</option>
+            <option selected>تغليف الأغذية والمنتجات الاستهلاكية</option>
+            <option>مواد بناء</option>
+            <option>بلاستيك وصناعات مرنة</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>الكمية المطلوبة</label>
+          <input type="number" placeholder="50000" required>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>الموعد المطلوب للتسليم</label>
+          <input type="date" required>
+        </div>
+        <div class="field">
+          <label>الميزانية التقديرية (ر.س)</label>
+          <input type="number" placeholder="اختياري">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>مواصفات إضافية</label>
+        <textarea rows="4" placeholder="الأبعاد، نوع الخامة، المطبوعات، معايير السلامة الغذائية..."></textarea>
+      </div>
+
+      <div class="field">
+        <label>الأسواق المفضّلة للمصنع</label>
+        <div style="display:flex; gap:10px;">
+          <span class="badge badge-navy">السعودية</span>
+          <span class="badge badge-navy">الإمارات</span>
+          <span class="badge" style="border:1px dashed var(--line); color:var(--slate);">+ إضافة سوق</span>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:12px; margin-top:28px;">
+        <button type="submit" class="btn btn-brass">نشر الطلب للمصانع الموثّقة</button>
+        <a href="buyer-dashboard.html" class="btn">إلغاء</a>
+      </div>
+    </form>
+  </main>
+</div>
+
+<script>
+  function submitRFQ(e){
+    e.preventDefault();
+    alert('تم نشر طلب عرض السعر. سيتم إشعارك عند وصول أول عرض من مصنع موثّق.');
+    window.location.href = 'buyer-dashboard.html';
+    return false;
+  }
+</script>
+</body>
+</html>

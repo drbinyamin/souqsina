@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة المصنع — سوق سينا</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sb-logo"><div class="mark">سس</div><div class="name">سوق سينا</div></div>
+    <nav class="sb-nav">
+      <a class="sb-link active" href="seller-dashboard.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        لوحة التحكم
+      </a>
+      <a class="sb-link" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        طلبات عروض واردة
+      </a>
+      <a class="sb-link" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg>
+        ملف المصنع
+      </a>
+      <a class="sb-link" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="7" width="15" height="10" rx="1"/><path d="M16 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
+        الشحنات
+      </a>
+      <a class="sb-link" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.34 1.87l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.7 1.7 0 00-1.87-.34 1.7 1.7 0 00-1 1.55V21a2 2 0 11-4 0v-.09a1.7 1.7 0 00-1-1.55 1.7 1.7 0 00-1.87.34l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.7 1.7 0 00.34-1.87 1.7 1.7 0 00-1.55-1H3a2 2 0 110-4h.09a1.7 1.7 0 001.55-1 1.7 1.7 0 00-.34-1.87l-.06-.06a2 2 0 112.83-2.83l.06.06a1.7 1.7 0 001.87.34H9a1.7 1.7 0 001-1.55V3a2 2 0 114 0v.09a1.7 1.7 0 001 1.55 1.7 1.7 0 001.87-.34l.06-.06a2 2 0 112.83 2.83l-.06.06a1.7 1.7 0 00-.34 1.87V9a1.7 1.7 0 001.55 1H21a2 2 0 110 4h-.09a1.7 1.7 0 00-1.55 1z"/></svg>
+        الإعدادات
+      </a>
+    </nav>
+    <div class="sb-foot">
+      <div class="sb-avatar">خت</div>
+      <div>
+        <div style="color:#fff; font-size:13.5px;">مصنع الخليج للتغليف</div>
+        <div style="font-size:12px;">بائع · موثّق ✓</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <h1>مرحباً، مصنع الخليج للتغليف</h1>
+        <p>طلبات العروض الواردة وحالة الصفقات الجارية</p>
+      </div>
+      <span class="badge badge-brass" style="padding:9px 18px; font-size:13.5px;">حساب موثّق ✓</span>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi"><div class="label">طلبات عروض جديدة</div><div class="value mono">6</div><div class="delta up">3 تطابق قطاعك</div></div>
+      <div class="kpi"><div class="label">عروض مُرسلة بانتظار الرد</div><div class="value mono">4</div><div class="delta">متوسط الرد: يومان</div></div>
+      <div class="kpi"><div class="label">قيمة الصفقات الجارية</div><div class="value mono">96,200 ر.س</div><div class="delta up">في الضمان التجاري</div></div>
+      <div class="kpi"><div class="label">تقييم الموثوقية</div><div class="value mono">4.8 / 5</div><div class="delta up">23 صفقة مكتملة</div></div>
+    </div>
+
+    <div class="sec-title"><h2>طلبات عروض الأسعار الواردة</h2><a href="#" class="btn btn-sm">عرض الكل</a></div>
+    <div class="card" style="padding:0; margin-bottom:34px;">
+      <table>
+        <thead><tr><th>الطلب</th><th>المشتري</th><th>الكمية</th><th>الموعد المطلوب</th><th>الحالة</th><th></th></tr></thead>
+        <tbody>
+          <tr>
+            <td>علب تغليف كرتونية مموجة</td><td>شركة الحمد للتوزيع</td><td>50,000 وحدة</td><td class="mono">خلال 3 أسابيع</td>
+            <td><span class="badge badge-amber">يحتاج عرض سعر</span></td>
+            <td><button class="btn btn-sm btn-primary" onclick="alert('نموذج تقديم عرض السعر — قيد التطوير')">تقديم عرض</button></td>
+          </tr>
+          <tr>
+            <td>كراتين نقل مقاومة للرطوبة</td><td>مؤسسة النخبة التجارية</td><td>15,000 وحدة</td><td class="mono">خلال أسبوعين</td>
+            <td><span class="badge badge-amber">يحتاج عرض سعر</span></td>
+            <td><button class="btn btn-sm btn-primary" onclick="alert('نموذج تقديم عرض السعر — قيد التطوير')">تقديم عرض</button></td>
+          </tr>
+          <tr>
+            <td>علب بيتزا مربعة 30سم</td><td>مطاعم الشرقية المتحدة</td><td>80,000 وحدة</td><td class="mono">خلال 4 أسابيع</td>
+            <td><span class="badge badge-navy">تم تقديم عرضك</span></td>
+            <td><button class="btn btn-sm" disabled style="opacity:0.5;">بانتظار الرد</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sec-title"><h2>ملف المصنع الموثّق</h2></div>
+    <div class="card">
+      <div class="field-row">
+        <div>
+          <label>القطاع الأساسي</label>
+          <p style="font-size:14.5px;">تغليف الأغذية والمنتجات الاستهلاكية</p>
+        </div>
+        <div>
+          <label>تاريخ التحقق الميداني</label>
+          <p class="mono" style="font-size:14.5px;">2026-04-12</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
