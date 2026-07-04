@@ -10,7 +10,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<link rel="stylesheet" href="app.css?v=6">
+<link rel="stylesheet" href="app.css?v=7">
 <style>
   body{ background:var(--paper); }
 
@@ -120,10 +120,7 @@
 
 <div class="pub-topnav">
   <a href="index.html" class="brand"><img src="logo.svg?v=5"><span>سوق سينا</span></a>
-  <div class="search">
-    <input type="text" id="home-q" placeholder="ابحث عن منتج، مصنع، أو فئة..." onkeydown="if(event.key==='Enter') goSearch()">
-    <button onclick="goSearch()"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
-  </div>
+  <div style="flex:1;"></div>
   <div class="actions">
     <a href="login.html" class="btn btn-sm">تسجيل الدخول</a>
     <a href="login.html" class="btn btn-sm btn-brass">إنشاء حساب</a>
@@ -162,8 +159,8 @@
     </div>
 
     <div class="m-hero-tags" style="margin-top:22px;">
-      <span><span class="counter" data-target="120">0</span>+ مصنع موثّق</span>
-      <span><span class="counter" data-target="850">0</span>+ منتج مُدرج</span>
+      <span><span class="ltr"><span class="counter" data-target="120">0</span>+</span> مصنع موثّق</span>
+      <span><span class="ltr"><span class="counter" data-target="850">0</span>+</span> منتج مُدرج</span>
       <span>ضمان تجاري مدمج</span>
     </div>
     </div>
@@ -360,11 +357,6 @@
 </div>
 
 <script>
-  function goSearch(){
-    const q = document.getElementById('home-q').value.trim();
-    location.href = q ? 'search-results.html?q=' + encodeURIComponent(q) : 'search-results.html';
-  }
-
   let searchTab = 'products';
   function setSearchTab(tab){
     searchTab = tab;
