@@ -264,6 +264,22 @@ input:focus, select:focus, textarea:focus{ outline:none; border-color:var(--bras
 .orfq-card .meta{ font-size:12.5px; color:var(--slate); }
 .orfq-card .meta span{ margin-left:12px; }
 
+/* ---------- BUYER TYPE SELECTOR ---------- */
+.buyer-type-row{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:24px; }
+.btr-label{ font-size:13px; color:rgba(245,241,232,0.55); }
+.btr-btn{
+  font-family:inherit; font-size:13.5px; padding:9px 18px; border-radius:100px;
+  border:1px solid rgba(245,241,232,0.28); background:transparent; color:rgba(245,241,232,0.85); cursor:pointer;
+  transition:all .18s ease;
+}
+.btr-btn:hover{ border-color:var(--brass-light); }
+.btr-btn.active{ background:var(--brass); border-color:var(--brass); color:#fff; font-weight:600; }
+
+/* pub-topnav nav-links fill (public homepage header) */
+.pub-topnav .nav-links{ display:flex; gap:22px; font-size:13.5px; }
+.pub-topnav .nav-links a{ color:var(--slate); }
+.pub-topnav .nav-links a:hover{ color:var(--navy-deep); }
+
 /* ---------- MARKETPLACE PRODUCT CARD v2 ---------- */
 .pcard{
   background:var(--white); border:1px solid var(--line); border-radius:10px; overflow:hidden;

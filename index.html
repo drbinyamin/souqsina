@@ -10,7 +10,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<link rel="stylesheet" href="app.css?v=7">
+<link rel="stylesheet" href="app.css?v=8">
 <style>
   body{ background:var(--paper); }
 
@@ -120,27 +120,29 @@
 
 <div class="pub-topnav">
   <a href="index.html" class="brand"><img src="logo.svg?v=5"><span>سوق سينا</span></a>
-  <div style="flex:1;"></div>
+  <div class="nav-links" style="flex:1;">
+    <a href="search-results.html">المصانع الموثّقة</a>
+    <a href="#how-it-works">كيف تعمل المنصة</a>
+    <a href="pitch-deck.html">عن سوق سينا</a>
+  </div>
   <div class="actions">
     <a href="login.html" class="btn btn-sm">تسجيل الدخول</a>
     <a href="login.html" class="btn btn-sm btn-brass">إنشاء حساب</a>
   </div>
 </div>
 
-<div class="category-chips" style="justify-content:center;">
-  <a class="chip active" href="search-results.html">الكل</a>
-  <a class="chip" href="search-results.html?cat=food">تغليف الأغذية</a>
-  <a class="chip" href="search-results.html?cat=plastic">بلاستيك وصناعات مرنة</a>
-  <a class="chip" href="search-results.html?cat=construction">مواد بناء</a>
-  <a class="chip" href="search-results.html?cat=paper">ورق وكرتون</a>
-  <a class="chip" href="search-results.html?cat=glass">زجاج وتعبئة</a>
-</div>
-
 <section class="m-hero">
   <div class="wrap">
     <div class="hero-text">
-    <h1>اشترِ بالجملة مباشرة من مصانع موثّقة<br>في السعودية والإمارات ومصر</h1>
+    <h1 id="hero-headline">اشترِ بالجملة مباشرة من مصانع موثّقة<br>في السعودية والإمارات ومصر</h1>
     <p>تصفّح آلاف المنتجات من مصانع تغليف وصناعات استهلاكية تم التحقق منها ميدانياً — قارن الأسعار، تواصل مع الموردين، واطلب بثقة عبر ضمان تجاري مدمج.</p>
+
+    <div class="buyer-type-row" id="buyer-type-row">
+      <span class="btr-label">نشاطك:</span>
+      <button class="btr-btn" onclick="selectBuyerType('retail')" data-type="retail">تاجر تجزئة</button>
+      <button class="btr-btn" onclick="selectBuyerType('distributor')" data-type="distributor">موزّع</button>
+      <button class="btr-btn" onclick="selectBuyerType('restaurant')" data-type="restaurant">مطعم أو مقهى</button>
+    </div>
 
     <div class="hero-search-tabs">
       <div class="hero-search-tab active" id="tab-products" onclick="setSearchTab('products')">المنتجات</div>
@@ -182,16 +184,25 @@
   </div>
 </section>
 
-<section class="m-section">
+<div class="category-chips" style="justify-content:center;" id="quick-chips">
+  <a class="chip active" href="search-results.html">الكل</a>
+  <a class="chip" href="search-results.html?cat=food">تغليف الأغذية</a>
+  <a class="chip" href="search-results.html?cat=plastic">بلاستيك وصناعات مرنة</a>
+  <a class="chip" href="search-results.html?cat=construction">مواد بناء</a>
+  <a class="chip" href="search-results.html?cat=paper">ورق وكرتون</a>
+  <a class="chip" href="search-results.html?cat=glass">زجاج وتعبئة</a>
+</div>
+
+<section class="m-section" id="categories-section">
   <div class="wrap">
     <div class="m-head"><h2>تصفح حسب الفئة</h2></div>
-    <div class="cat-grid">
-      <a class="cat-card" href="search-results.html?cat=food"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3.3 8.5L12 13l8.7-4.5M12 13v8"/></svg><p>تغليف الأغذية</p></a>
-      <a class="cat-card" href="search-results.html?cat=plastic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><p>بلاستيك مرن</p></a>
-      <a class="cat-card" href="search-results.html?cat=construction"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1"/></svg><p>مواد بناء</p></a>
-      <a class="cat-card" href="search-results.html?cat=paper"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3"/></svg><p>ورق وكرتون</p></a>
-      <a class="cat-card" href="search-results.html?cat=glass"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 2h4v3.5l2.2 3.3c.5.7.8 1.6.8 2.4V19a2 2 0 01-2 2h-6a2 2 0 01-2-2v-7.8c0-.9.3-1.7.8-2.4L10 5.5V2z"/><path d="M9 13h6"/></svg><p>زجاج وتعبئة</p></a>
-      <a class="cat-card" href="search-results.html?cat=logistics"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="7" width="15" height="10" rx="1"/><path d="M16 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg><p>شحن وتخليص</p></a>
+    <div class="cat-grid" id="cat-grid">
+      <a class="cat-card" href="search-results.html?cat=food" data-cat="food"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3.3 8.5L12 13l8.7-4.5M12 13v8"/></svg><p>تغليف الأغذية</p></a>
+      <a class="cat-card" href="search-results.html?cat=plastic" data-cat="plastic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><p>بلاستيك مرن</p></a>
+      <a class="cat-card" href="search-results.html?cat=construction" data-cat="construction"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1"/></svg><p>مواد بناء</p></a>
+      <a class="cat-card" href="search-results.html?cat=paper" data-cat="paper"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3"/></svg><p>ورق وكرتون</p></a>
+      <a class="cat-card" href="search-results.html?cat=glass" data-cat="glass"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 2h4v3.5l2.2 3.3c.5.7.8 1.6.8 2.4V19a2 2 0 01-2 2h-6a2 2 0 01-2-2v-7.8c0-.9.3-1.7.8-2.4L10 5.5V2z"/><path d="M9 13h6"/></svg><p>زجاج وتعبئة</p></a>
+      <a class="cat-card" href="search-results.html?cat=logistics" data-cat="logistics"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="7" width="15" height="10" rx="1"/><path d="M16 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg><p>شحن وتخليص</p></a>
     </div>
   </div>
 </section>
@@ -202,8 +213,8 @@
       <h2>منتجات مميزة من مصانع موثّقة</h2>
       <a href="search-results.html">تصفح الكل ←</a>
     </div>
-    <div class="prod-grid">
-      <a class="pcard" href="product-detail.html?id=1" style="text-decoration:none;">
+    <div class="prod-grid" id="featured-grid">
+      <a class="pcard" id="pcard-1" href="product-detail.html?id=1" style="text-decoration:none;">
         <div class="pcard-thumb" style="--tint:linear-gradient(135deg,#E7DCC3,#F5F1E8);"><label class="compare-check" onclick="event.preventDefault(); event.stopPropagation();"><input type="checkbox" onchange="toggleCompare(\'1\', this)">قارن</label>
           <span class="pcard-ribbon">الأكثر طلباً</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="7" width="18" height="13" rx="1"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
@@ -216,7 +227,7 @@
           <div class="pcard-foot"><span class="pcard-moq">الحد الأدنى: 10,000 وحدة</span></div>
         </div>
       </a>
-      <a class="pcard" href="product-detail.html?id=2" style="text-decoration:none;">
+      <a class="pcard" id="pcard-2" href="product-detail.html?id=2" style="text-decoration:none;">
         <div class="pcard-thumb" style="--tint:linear-gradient(135deg,#DCE3E7,#F5F1E8);"><label class="compare-check" onclick="event.preventDefault(); event.stopPropagation();"><input type="checkbox" onchange="toggleCompare(\'2\', this)">قارن</label>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 8h12l-1 12H7z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
         </div>
@@ -228,7 +239,7 @@
           <div class="pcard-foot"><span class="pcard-moq">الحد الأدنى: 50,000 وحدة</span></div>
         </div>
       </a>
-      <a class="pcard" href="product-detail.html?id=3" style="text-decoration:none;">
+      <a class="pcard" id="pcard-3" href="product-detail.html?id=3" style="text-decoration:none;">
         <div class="pcard-thumb" style="--tint:linear-gradient(135deg,#DDE7DD,#F5F1E8);"><label class="compare-check" onclick="event.preventDefault(); event.stopPropagation();"><input type="checkbox" onchange="toggleCompare(\'3\', this)">قارن</label>
           <span class="pcard-ribbon">جديد</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 2h4v3.5l2.2 3.3c.5.7.8 1.6.8 2.4V19a2 2 0 01-2 2h-6a2 2 0 01-2-2v-7.8c0-.9.3-1.7.8-2.4L10 5.5V2z"/><path d="M9 13h6"/></svg>
@@ -241,7 +252,7 @@
           <div class="pcard-foot"><span class="pcard-moq">الحد الأدنى: 5,000 وحدة</span></div>
         </div>
       </a>
-      <a class="pcard" href="product-detail.html?id=4" style="text-decoration:none;">
+      <a class="pcard" id="pcard-4" href="product-detail.html?id=4" style="text-decoration:none;">
         <div class="pcard-thumb" style="--tint:linear-gradient(135deg,#E7DCC3,#F5F1E8);"><label class="compare-check" onclick="event.preventDefault(); event.stopPropagation();"><input type="checkbox" onchange="toggleCompare(\'4\', this)">قارن</label>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16M9 4v16"/></svg>
         </div>
@@ -296,7 +307,7 @@
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section" id="how-it-works">
   <div class="wrap">
     <div class="m-head"><h2>كيف تشتري بالجملة؟</h2></div>
     <div class="steps-row">
@@ -371,6 +382,55 @@
     const url = searchTab === 'suppliers' ? 'search-results.html?type=suppliers' : 'search-results.html';
     location.href = q ? url + (url.includes('?') ? '&' : '?') + 'q=' + encodeURIComponent(q) : url;
   }
+  // ---- Buyer type personalization ----
+  const headlines = {
+    retail: 'اشترِ بالجملة لمتجرك بأسعار المصنع<br>مباشرة من موردين موثّقين',
+    distributor: 'وسّع شبكة توزيعك بمصادر تصنيع موثّقة<br>في السعودية والإمارات ومصر',
+    restaurant: 'تغليف يعكس جودة مطعمك<br>مباشرة من مصانع موثّقة بأسعار الجملة',
+  };
+  const catOrder = {
+    retail:       ['food','plastic','glass','paper','construction','logistics'],
+    distributor:  ['paper','construction','plastic','food','glass','logistics'],
+    restaurant:   ['food','paper','plastic','glass','construction','logistics'],
+  };
+  const featuredOrder = {
+    retail:      ['3','1','2','4'],
+    distributor: ['1','4','2','3'],
+    restaurant:  ['4','1','3','2'],
+  };
+
+  function selectBuyerType(type){
+    localStorage.setItem('sinaBuyerType', type);
+    applyBuyerType(type);
+  }
+
+  function applyBuyerType(type){
+    document.querySelectorAll('.btr-btn').forEach(b => b.classList.toggle('active', b.dataset.type === type));
+
+    const h1 = document.getElementById('hero-headline');
+    if(h1 && headlines[type]) h1.innerHTML = headlines[type];
+
+    const grid = document.getElementById('cat-grid');
+    if(grid && catOrder[type]){
+      catOrder[type].forEach(cat => {
+        const el = grid.querySelector('[data-cat="' + cat + '"]');
+        if(el) grid.appendChild(el);
+      });
+    }
+
+    const fgrid = document.getElementById('featured-grid');
+    if(fgrid && featuredOrder[type]){
+      featuredOrder[type].forEach(id => {
+        const el = document.getElementById('pcard-' + id);
+        if(el) fgrid.appendChild(el);
+      });
+    }
+  }
+
+  // Apply saved preference on load, if any
+  const savedType = localStorage.getItem('sinaBuyerType');
+  if(savedType) applyBuyerType(savedType);
+
   // Count-up animation for hero stats
   document.querySelectorAll('.counter').forEach(el=>{
     const target = parseInt(el.dataset.target, 10);
