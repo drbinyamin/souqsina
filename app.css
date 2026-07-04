@@ -215,6 +215,55 @@ input:focus, select:focus, textarea:focus{ outline:none; border-color:var(--bras
 .acc-dropdown .acc-head .name{ font-size:13.5px; font-weight:600; color:var(--navy-deep); }
 .acc-dropdown .acc-head .sub{ font-size:11.5px; color:var(--slate); margin-top:2px; }
 
+/* ---------- HERO SEARCH (tabs + big box) ---------- */
+.hero-search-tabs{ display:flex; gap:4px; margin-bottom:0; }
+.hero-search-tab{
+  padding:10px 22px; font-size:14px; font-weight:500; color:rgba(245,241,232,0.55);
+  cursor:pointer; border-radius:8px 8px 0 0; background:rgba(245,241,232,0.06);
+}
+.hero-search-tab.active{ background:var(--paper); color:var(--navy-deep); }
+.hero-search-box{
+  background:var(--paper); border-radius:0 10px 10px 10px; padding:18px; display:flex; gap:10px;
+}
+.hero-search-box input{ flex:1; border:none; font-size:15px; padding:6px 8px; }
+.hero-search-box input:focus{ box-shadow:none; }
+.hero-search-box button{
+  background:var(--brass); color:#fff; border:none; border-radius:6px; padding:0 24px; font-size:14.5px; cursor:pointer;
+}
+.popular-searches{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; align-items:center; }
+.popular-searches span.lbl{ font-size:12.5px; color:rgba(245,241,232,0.55); }
+.popular-searches a{
+  font-size:12.5px; color:rgba(245,241,232,0.85); border:1px solid rgba(245,241,232,0.25);
+  padding:5px 13px; border-radius:100px;
+}
+.popular-searches a:hover{ border-color:var(--brass-light); color:var(--brass-light); }
+
+/* ---------- COMPARE FEATURE ---------- */
+.compare-check{
+  position:absolute; top:10px; left:10px; background:rgba(255,255,255,0.9); border-radius:6px;
+  padding:5px 9px; font-size:11.5px; display:flex; align-items:center; gap:5px; color:var(--navy-deep); cursor:pointer;
+  border:1px solid var(--line);
+}
+.compare-check input{ width:auto; accent-color:var(--brass); }
+.compare-bar{
+  position:fixed; bottom:0; right:0; left:0; background:var(--navy-deep); color:#fff;
+  padding:14px 32px; display:none; align-items:center; justify-content:space-between; z-index:80;
+  box-shadow:0 -8px 24px rgba(0,0,0,0.2);
+}
+.compare-bar.open{ display:flex; }
+.compare-bar .items{ display:flex; gap:10px; align-items:center; font-size:13.5px; }
+.compare-bar .chip-mini{ background:rgba(245,241,232,0.1); padding:6px 12px; border-radius:100px; font-size:12.5px; }
+.response-badge{ font-size:11px; color:var(--green); margin-top:2px; }
+
+/* ---------- OPEN RFQ CARDS ---------- */
+.orfq-card{
+  background:var(--white); border:1px solid var(--line); border-radius:8px; padding:20px; margin-bottom:14px;
+  display:flex; justify-content:space-between; align-items:center; gap:16px;
+}
+.orfq-card .title{ font-size:14.5px; font-weight:600; color:var(--navy-deep); margin-bottom:6px; }
+.orfq-card .meta{ font-size:12.5px; color:var(--slate); }
+.orfq-card .meta span{ margin-left:12px; }
+
 /* ---------- MARKETPLACE PRODUCT CARD v2 ---------- */
 .pcard{
   background:var(--white); border:1px solid var(--line); border-radius:10px; overflow:hidden;
