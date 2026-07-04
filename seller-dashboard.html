@@ -7,41 +7,20 @@
 <link rel="stylesheet" href="app.css">
 </head>
 <body>
-<div class="app">
-  <aside class="sidebar">
-    <div class="sb-logo"><div class="mark">سس</div><div class="name">سوق سينا</div></div>
-    <nav class="sb-nav">
-      <a class="sb-link active" href="seller-dashboard.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
-        لوحة التحكم
-      </a>
-      <a class="sb-link" href="#">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-        طلبات عروض واردة
-      </a>
-      <a class="sb-link" href="#">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg>
-        ملف المصنع
-      </a>
-      <a class="sb-link" href="#">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="7" width="15" height="10" rx="1"/><path d="M16 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
-        الشحنات
-      </a>
-      <a class="sb-link" href="#">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.34 1.87l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.7 1.7 0 00-1.87-.34 1.7 1.7 0 00-1 1.55V21a2 2 0 11-4 0v-.09a1.7 1.7 0 00-1-1.55 1.7 1.7 0 00-1.87.34l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.7 1.7 0 00.34-1.87 1.7 1.7 0 00-1.55-1H3a2 2 0 110-4h.09a1.7 1.7 0 001.55-1 1.7 1.7 0 00-.34-1.87l-.06-.06a2 2 0 112.83-2.83l.06.06a1.7 1.7 0 001.87.34H9a1.7 1.7 0 001-1.55V3a2 2 0 114 0v.09a1.7 1.7 0 001 1.55 1.7 1.7 0 001.87-.34l.06-.06a2 2 0 112.83 2.83l-.06.06a1.7 1.7 0 00-.34 1.87V9a1.7 1.7 0 001.55 1H21a2 2 0 110 4h-.09a1.7 1.7 0 00-1.55 1z"/></svg>
-        الإعدادات
-      </a>
-    </nav>
-    <div class="sb-foot">
-      <div class="sb-avatar">خت</div>
-      <div>
-        <div style="color:#fff; font-size:13.5px;">مصنع الخليج للتغليف</div>
-        <div style="font-size:12px;">بائع · موثّق ✓</div>
+<div>
+  <main class="main" style="padding:0;">
+    <div class="topnav">
+      <a href="seller-dashboard.html" class="brand"><img src="logo.svg"><span>سوق سينا</span></a>
+      <div class="search">
+        <input type="text" placeholder="ابحث في طلبات العروض الواردة...">
+        <button><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+      </div>
+      <div class="nav-links">
+        <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg>ملف المصنع</a>
+        <a href="#"><div class="sb-avatar" style="width:30px;height:30px;font-size:12px;">خت</div></a>
       </div>
     </div>
-  </aside>
-
-  <main class="main">
+    <div style="padding:34px 40px;">
     <div class="topbar">
       <div>
         <h1>مرحباً، مصنع الخليج للتغليف</h1>
@@ -93,6 +72,7 @@
           <p class="mono" style="font-size:14.5px;">2026-04-12</p>
         </div>
       </div>
+    </div>
     </div>
   </main>
 </div>

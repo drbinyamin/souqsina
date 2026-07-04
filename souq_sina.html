@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سوق سينا — طبقة الثقة للتجارة الإقليمية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F1E8;
+    --ink:#171B26;
+    --navy:#0F2A4A;
+    --navy-deep:#0A1D34;
+    --brass:#A9814A;
+    --brass-light:#C9A36B;
+    --slate:#5B6472;
+    --line:rgba(15,42,74,0.14);
+    --seal-red:#8C2F2F;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans Arabic', sans-serif;
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Markazi Text', 'IBM Plex Sans Arabic', serif;
+    font-weight:700;
+    color:var(--navy-deep);
+  }
+  .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 32px;}
+  section{position:relative; padding:110px 0;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px; letter-spacing:0.08em;
+    color:var(--brass);
+    margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:22px; height:1px; background:var(--brass);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex; align-items:center;
+    background:
+      radial-gradient(ellipse 900px 500px at 85% -10%, rgba(169,129,74,0.14), transparent 60%),
+      var(--navy-deep);
+    color:var(--paper);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:'';
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(245,241,232,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,241,232,0.035) 1px, transparent 1px);
+    background-size:64px 64px;
+    mask-image: radial-gradient(circle at 75% 30%, black, transparent 70%);
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.3fr 0.9fr; gap:60px; align-items:center;
+    position:relative; z-index:2; width:100%;
+  }
+  .hero h1{
+    font-size:clamp(42px, 5.4vw, 68px);
+    color:#fff;
+    line-height:1.18;
+    margin-bottom:26px;
+  }
+  .hero h1 em{
+    font-style:normal; color:var(--brass-light);
+  }
+  .hero p.lede{
+    font-size:19px; color:rgba(245,241,232,0.78);
+    max-width:520px; margin-bottom:36px;
+  }
+  .hero-tags{display:flex; flex-wrap:wrap; gap:12px;}
+  .tag{
+    font-size:13px; font-family:'IBM Plex Mono',monospace;
+    border:1px solid rgba(245,241,232,0.25);
+    color:rgba(245,241,232,0.85);
+    padding:8px 16px; border-radius:100px;
+  }
+  .confidential{
+    position:absolute; top:36px; left:32px; z-index:3;
+    font-family:'IBM Plex Mono', monospace; font-size:12px;
+    color:rgba(245,241,232,0.45); letter-spacing:0.1em;
+  }
+  .top-nav{
+    position:absolute; top:30px; right:32px; z-index:3;
+    display:flex; gap:14px; align-items:center;
+  }
+  .top-nav a{
+    font-size:13.5px; color:rgba(245,241,232,0.8);
+    border:1px solid rgba(245,241,232,0.28); padding:9px 20px; border-radius:100px;
+    transition:all .2s ease;
+  }
+  .top-nav a.filled{ background:#C9A36B; color:#0A1D34; border-color:#C9A36B; font-weight:600; }
+  .top-nav a:hover{ border-color:#C9A36B; color:#C9A36B; }
+  .top-nav a.filled:hover{ background:#dab179; color:#0A1D34; }
+
+  /* Seal signature element */
+  .seal-wrap{ display:flex; justify-content:center; }
+  .seal{ width:min(320px, 100%); animation:sealIn 1.4s cubic-bezier(.2,.9,.25,1) both; }
+  @keyframes sealIn{
+    0%{ opacity:0; transform:scale(0.7) rotate(-14deg); }
+    100%{ opacity:1; transform:scale(1) rotate(-6deg); }
+  }
+  .seal-ring{ transform-origin:center; }
+  .seal:hover .seal-ring{ animation:spin 20s linear infinite; }
+  @keyframes spin{ to{ transform:rotate(360deg);} }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .sec-head{ max-width:680px; margin-bottom:64px; }
+  .sec-head h2{ font-size:clamp(30px,3.4vw,42px); margin-bottom:16px; }
+  .sec-head p{ font-size:17px; color:var(--slate); }
+
+  /* ---------- PROBLEM ---------- */
+  .problem{ background:var(--paper); }
+  .problem-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .problem-card{ background:var(--paper); padding:38px 30px; }
+  .problem-card .num{ font-family:'IBM Plex Mono',monospace; color:var(--brass); font-size:13px; margin-bottom:18px; display:block; }
+  .problem-card h3{ font-size:22px; margin-bottom:12px; color:var(--navy-deep); }
+  .problem-card p{ color:var(--slate); font-size:15.5px; }
+
+  /* ---------- WHY NOW ---------- */
+  .whynow{ background:var(--navy-deep); color:var(--paper); }
+  .whynow .sec-head h2{ color:#fff; }
+  .whynow .sec-head p{ color:rgba(245,241,232,0.65); }
+  .why-list{ display:grid; gap:0; border-top:1px solid rgba(245,241,232,0.15); }
+  .why-item{
+    display:grid; grid-template-columns:60px 1fr; gap:24px;
+    padding:28px 0; border-bottom:1px solid rgba(245,241,232,0.15);
+  }
+  .why-item .mono{ color:var(--brass-light); font-size:14px; padding-top:4px;}
+  .why-item p{ font-size:16.5px; color:rgba(245,241,232,0.85); }
+
+  /* ---------- SOLUTION ---------- */
+  .solution{ background:var(--paper); }
+  .sol-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+  .sol-card{
+    background:#fff; border:1px solid var(--line); border-radius:4px;
+    padding:30px 24px; position:relative;
+    transition:transform .35s ease, box-shadow .35s ease;
+  }
+  .sol-card:hover{ transform:translateY(-6px); box-shadow:0 20px 40px -18px rgba(15,42,74,0.25); }
+  .sol-icon{ width:38px; height:38px; margin-bottom:20px; color:var(--navy); }
+  .sol-card h3{ font-size:19px; margin-bottom:10px; color:var(--navy-deep); }
+  .sol-card p{ font-size:14.5px; color:var(--slate); }
+
+  /* ---------- HOW IT WORKS ---------- */
+  .flow{ background:var(--paper); }
+  .flow-track{ position:relative; padding-top:20px; }
+  .flow-line{
+    position:absolute; top:39px; right:0; left:0; height:1px; background:var(--line);
+  }
+  .flow-steps{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px; position:relative; z-index:1;}
+  .flow-step{ text-align:center; }
+  .flow-dot{
+    width:44px; height:44px; border-radius:50%;
+    background:var(--navy-deep); color:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono',monospace; font-size:16px;
+    margin:0 auto 20px; border:4px solid var(--paper); box-shadow:0 0 0 1px var(--line);
+  }
+  .flow-step p{ font-size:14.5px; color:var(--ink); padding:0 6px; }
+  .flow-note{
+    margin-top:44px; padding:18px 22px; border-right:3px solid var(--brass);
+    background:rgba(169,129,74,0.07); font-size:14.5px; color:var(--navy-deep);
+  }
+
+  /* ---------- MARKET ---------- */
+  .market{ background:var(--navy-deep); color:var(--paper); }
+  .market .sec-head h2{ color:#fff; }
+  .market .sec-head p{ color:rgba(245,241,232,0.65); }
+  .stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(245,241,232,0.15); border:1px solid rgba(245,241,232,0.15); }
+  .stat{ background:var(--navy-deep); padding:42px 30px; text-align:center; }
+  .stat .big{ font-family:'IBM Plex Mono',monospace; font-size:44px; color:var(--brass-light); display:block; margin-bottom:10px; }
+  .stat .label{ font-size:14.5px; color:rgba(245,241,232,0.75); }
+
+  /* ---------- GTM ---------- */
+  .gtm{ background:var(--paper); }
+  .phase-list{ display:flex; flex-direction:column; gap:0; }
+  .phase{
+    display:grid; grid-template-columns:140px 1fr; gap:30px;
+    padding:34px 0; border-bottom:1px solid var(--line);
+    align-items:start;
+  }
+  .phase:first-child{ border-top:1px solid var(--line); }
+  .phase-label{ font-family:'IBM Plex Mono',monospace; color:var(--brass); font-size:14px; padding-top:4px; }
+  .phase h3{ font-size:20px; margin-bottom:8px; color:var(--navy-deep); }
+  .phase p{ color:var(--slate); font-size:15px; }
+
+  /* ---------- BUSINESS MODEL ---------- */
+  .model{ background:#fff; }
+  .model-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+  .model-card{
+    border:1px solid var(--line); padding:32px 28px; position:relative;
+    background:var(--paper);
+  }
+  .model-card.future{ border-style:dashed; opacity:0.85; }
+  .model-tag{
+    position:absolute; top:24px; left:28px;
+    font-family:'IBM Plex Mono',monospace; font-size:11px;
+    color:var(--brass); border:1px solid var(--brass); border-radius:100px;
+    padding:3px 10px;
+  }
+  .model-card h3{ font-size:19px; margin-bottom:10px; color:var(--navy-deep); padding-left:90px;}
+  .model-card p{ font-size:14.5px; color:var(--slate); }
+
+  /* ---------- RISKS ---------- */
+  .risks{ background:var(--navy-deep); color:var(--paper); }
+  .risks .sec-head h2{ color:#fff; }
+  .risks .sec-head p{ color:rgba(245,241,232,0.65); }
+  .risk-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:rgba(245,241,232,0.15); border:1px solid rgba(245,241,232,0.15); }
+  .risk-card{ background:var(--navy-deep); padding:32px 28px; }
+  .risk-card h3{ font-size:18px; color:var(--brass-light); margin-bottom:10px; font-family:'IBM Plex Sans Arabic'; font-weight:600;}
+  .risk-card p{ font-size:14.5px; color:rgba(245,241,232,0.75); }
+
+  /* ---------- ASK ---------- */
+  .ask{ background:var(--paper); text-align:center; }
+  .ask .sec-head{ margin:0 auto 50px; text-align:center; }
+  .ask-list{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:56px; text-align:right;}
+  .ask-card{ background:#fff; border:1px solid var(--line); padding:28px 24px; }
+  .ask-card .mono{ color:var(--brass); font-size:13px; display:block; margin-bottom:14px;}
+  .ask-card p{ font-size:15px; color:var(--ink); }
+  .closing{
+    font-family:'Markazi Text', serif; font-weight:600;
+    font-size:clamp(24px,3vw,32px); color:var(--navy-deep);
+    max-width:640px; margin:0 auto; line-height:1.5;
+  }
+  .closing .brass{ color:var(--brass); }
+
+  footer{
+    background:var(--navy-deep); color:rgba(245,241,232,0.5);
+    padding:40px 0; text-align:center; font-size:13px;
+    font-family:'IBM Plex Mono',monospace;
+  }
+
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  @media (max-width:860px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .seal-wrap{ order:-1; margin-bottom:10px; }
+    .problem-grid, .sol-grid, .stat-grid, .model-grid, .risk-grid, .ask-list{ grid-template-columns:1fr; }
+    .flow-steps{ grid-template-columns:repeat(1,1fr); gap:26px; }
+    .flow-line{ display:none; }
+    .why-item{ grid-template-columns:44px 1fr; }
+    section{ padding:70px 0; }
+    .model-card h3{ padding-left:0; margin-top:30px; }
+    .model-tag{ position:static; display:inline-block; margin-bottom:14px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <span class="confidential">عرض تقديمي — سرّي</span>
+  <div class="top-nav">
+    <img src="logo.svg" style="width:28px;height:28px;">
+    <span style="font-family:'Markazi Text',serif; font-weight:700; font-size:18px; color:#fff; margin-left:14px;">سوق سينا</span>
+    <a href="login.html">تسجيل الدخول</a>
+    <a href="login.html" class="filled">جرّب المنصة</a>
+  </div>
+  <div class="wrap hero-grid">
+    <div>
+      <h1>طبقة الثقة<br>لربط <em>مصانع المنطقة</em><br>بالمشترين الإقليميين</h1>
+      <p class="lede">نربط المصانع الموثّقة في الشرق الأوسط وشمال أفريقيا بالمشترين الإقليميين — مع ضمان تجاري مدمج من اليوم الأول.</p>
+      <div class="hero-tags">
+        <span class="tag">سوق B2B عمودي</span>
+        <span class="tag">السعودية × الإمارات</span>
+        <span class="tag">ضمان تجاري مدمج</span>
+      </div>
+    </div>
+    <div class="seal-wrap">
+      <svg class="seal" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        <g class="seal-ring">
+          <circle cx="150" cy="150" r="138" fill="none" stroke="#C9A36B" stroke-width="1.4" stroke-dasharray="2 6"/>
+          <circle cx="150" cy="150" r="122" fill="none" stroke="#C9A36B" stroke-width="1"/>
+          <path id="ringpath" fill="none" d="M150,150 m-104,0 a104,104 0 1,1 208,0 a104,104 0 1,1 -208,0"/>
+          <text font-family="IBM Plex Mono, monospace" font-size="11.5" fill="#C9A36B" letter-spacing="3">
+            <textPath href="#ringpath" startOffset="2%">SOUQ SINA · TRADE ASSURANCE · SOUQ SINA · TRADE ASSURANCE ·</textPath>
+          </text>
+        </g>
+        <circle cx="150" cy="150" r="96" fill="none" stroke="#C9A36B" stroke-width="1.4"/>
+        <circle cx="150" cy="150" r="90" fill="rgba(201,163,107,0.06)"/>
+        <text x="150" y="140" text-anchor="middle" font-family="Markazi Text, serif" font-weight="700" font-size="46" fill="#F5F1E8">سوق سينا</text>
+        <text x="150" y="172" text-anchor="middle" font-family="IBM Plex Sans Arabic" font-size="13" fill="#C9A36B" letter-spacing="1">ضمان · جودة · تسليم</text>
+        <path d="M115 190 l14 14 28-30" stroke="#C9A36B" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="problem">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">المشكلة</span>
+      <h2>التصنيع الإقليمي مجزأ</h2>
+      <p>والثقة هي العائق الحقيقي، وليس الاكتشاف.</p>
+    </div>
+    <div class="problem-grid reveal">
+      <div class="problem-card">
+        <span class="num mono">01</span>
+        <h3>لا يوجد معيار إقليمي</h3>
+        <p>يلجأ المشترون افتراضياً إلى الصين عبر علي بابا حتى عندما تكون المصانع الإقليمية أرخص وأسرع، لعدم وجود دليل موثّق شامل للمنطقة.</p>
+      </div>
+      <div class="problem-card">
+        <span class="num mono">02</span>
+        <h3>فجوة الثقة في الدفع</h3>
+        <p>تتم الصفقات عبر واتساب والتحويل البنكي. غياب الضمان التجاري أو مراقبة الجودة يجعل المخاطرة على عاتق الطرفين وحدهما.</p>
+      </div>
+      <div class="problem-card">
+        <span class="num mono">03</span>
+        <h3>خدمات لوجستية مجزأة</h3>
+        <p>تُدار الجمارك عبر الحدود (مصر، السعودية، المغرب، الإمارات) بشكل عشوائي لكل شحنة — لا توجد طبقة شحن متكاملة للشركات الصغيرة.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="whynow">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">لماذا الآن</span>
+      <h2>ممر تجاري طبيعي غير مستغل</h2>
+    </div>
+    <div class="why-list reveal">
+      <div class="why-item">
+        <span class="mono">01</span>
+        <p>سياسة "صنع في السعودية" ورؤية 2030 تدفعان المشتريات بعيداً عن الصين نحو الموردين الإقليميين.</p>
+      </div>
+      <div class="why-item">
+        <span class="mono">02</span>
+        <p>المشاريع العملاقة (نيوم، روشن، الدرعية) تخلق طلباً إقليمياً مستداماً على مواد البناء والسلع الاستهلاكية والصناعية.</p>
+      </div>
+      <div class="why-item">
+        <span class="mono">03</span>
+        <p>نسبة 80% من مشتري الأعمال عالمياً يفضلون الآن قنوات التوريد الرقمية على المعارض التجارية — لكن لا توجد منصة محلّية لذلك في المنطقة.</p>
+      </div>
+      <div class="why-item">
+        <span class="mono">04</span>
+        <p>القاعدة الصناعية المصرية المتنامية + رأس المال الخليجي + الطلب السعودي يخلقون ممراً تجارياً طبيعياً غير مستغل.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="solution">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">الحل</span>
+      <h2>منصة عمودية — لا نسخة أفقية من علي بابا</h2>
+      <p>نبدأ بممر تجاري واحد نتقنه بالكامل قبل التوسع.</p>
+    </div>
+    <div class="sol-grid reveal">
+      <div class="sol-card">
+        <svg class="sol-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg>
+        <h3>مصانع موثّقة</h3>
+        <p>ملفات مصنّعين تم التحقق منها ميدانياً — بدءاً بقطاع واحد (تغليف الأغذية والمنتجات الاستهلاكية).</p>
+      </div>
+      <div class="sol-card">
+        <svg class="sol-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        <h3>طلب عروض ومطابقة</h3>
+        <p>يطرح المشترون متطلباتهم، وتستجيب المصانع المطابقة بعروض أسعار وحدود طلب وعيّنات.</p>
+      </div>
+      <div class="sol-card">
+        <svg class="sol-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+        <h3>ضمان تجاري</h3>
+        <p>تحرير الدفع عبر ضمان مرتبط بمراحل التسليم وفحوصات الجودة.</p>
+      </div>
+      <div class="sol-card">
+        <svg class="sol-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="7" width="15" height="10" rx="1"/><path d="M16 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
+        <h3>شراكة لوجستية</h3>
+        <p>شركاء شحن وتخليص جمركي متكاملون بين السعودية والإمارات، دون بناء ذلك داخلياً.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="flow">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">كيف تعمل المنصة</span>
+      <h2>من طلب العرض إلى تحرير الأموال</h2>
+    </div>
+    <div class="flow-track reveal">
+      <div class="flow-line"></div>
+      <div class="flow-steps">
+        <div class="flow-step"><div class="flow-dot">١</div><p>المشتري ينشر طلب عرض سعر</p></div>
+        <div class="flow-step"><div class="flow-dot">٢</div><p>المصانع الموثّقة تقدّم عروضها</p></div>
+        <div class="flow-step"><div class="flow-dot">٣</div><p>المشتري يختار ويموّل الضمان</p></div>
+        <div class="flow-step"><div class="flow-dot">٤</div><p>الإنتاج ونقطة فحص الجودة</p></div>
+        <div class="flow-step"><div class="flow-dot">٥</div><p>التسليم وتحرير الأموال</p></div>
+      </div>
+      <div class="flow-note">تنفيذ يدوي مخصص لأول 10-20 صفقة، ثم أتمتة تدريجية.</div>
+    </div>
+  </div>
+</section>
+
+<section class="market">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">الفرصة السوقية</span>
+      <h2>تجارة عالمية ضخمة، ثقة إقليمية غائبة</h2>
+      <p>التجارة الإلكترونية العالمية بين الشركات تتجه نحو 36 تريليون دولار في 2026 — وحصة المنطقة تنمو رقمياً لكنها تفتقر لبنية الثقة المحلية.</p>
+    </div>
+    <div class="stat-grid reveal">
+      <div class="stat"><span class="big">36T$</span><span class="label">حجم التجارة العالمية بين الشركات، 2026</span></div>
+      <div class="stat"><span class="big">80%</span><span class="label">من المشترين يفضّلون التوريد الرقمي</span></div>
+      <div class="stat"><span class="big">سوقان</span><span class="label">البداية: السعودية والإمارات معًا</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="gtm">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">استراتيجية الدخول إلى السوق</span>
+      <h2>أربع مراحل، ممر واحد أولاً</h2>
+    </div>
+    <div class="phase-list reveal">
+      <div class="phase">
+        <span class="phase-label">المرحلة 1<br>التركيز</span>
+        <div><h3>قطاع واحد، سوقان معًا</h3><p>تغليف الأغذية، سوقا الانطلاق: السعودية والإمارات معًا. التحقق مع 20-30 مشترٍ ومصنع فعلي.</p></div>
+      </div>
+      <div class="phase">
+        <span class="phase-label">المرحلة 2<br>العرض</span>
+        <div><h3>ضم المصانع يدوياً</h3><p>ضم والتحقق يدوياً من 50-100 مصنع عبر شراكات الغرف التجارية وزيارات ميدانية.</p></div>
+      </div>
+      <div class="phase">
+        <span class="phase-label">المرحلة 3<br>الطلب</span>
+        <div><h3>تفعيل شبكة المشترين</h3><p>عبر علاقات الاستيراد والتوزيع الحالية؛ تنفيذ أولى الصفقات يدوياً.</p></div>
+      </div>
+      <div class="phase">
+        <span class="phase-label">المرحلة 4<br>التوسع</span>
+        <div><h3>الأتمتة وجمع التمويل</h3><p>إضافة الضمان التجاري الآلي، توسيع القطاعات والممرات، وجمع تمويل أولي بناءً على نتائج مثبتة.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="model">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">نموذج العمل</span>
+      <h2>أربعة مصادر دخل، اثنان أولاً</h2>
+    </div>
+    <div class="model-grid reveal">
+      <div class="model-card">
+        <span class="model-tag">أساسي</span>
+        <h3>نسبة من المعاملة</h3>
+        <p>رسم بسيط على كل معاملة تتم عبر الضمان التجاري.</p>
+      </div>
+      <div class="model-card">
+        <span class="model-tag">أساسي</span>
+        <h3>عمولة لوجستية</h3>
+        <p>هامش/عمولة إحالة من شركاء الشحن والتخليص الجمركي على الحجوزات عبر المنصة.</p>
+      </div>
+      <div class="model-card">
+        <span class="model-tag">أساسي</span>
+        <h3>رسوم القوائم الموثّقة</h3>
+        <p>اشتراك للمصانع الراغبة في ظهور مميز وشارة موثّقة.</p>
+      </div>
+      <div class="model-card future">
+        <span class="model-tag">لاحقاً</span>
+        <h3>تمويل تجاري</h3>
+        <p>تمويل بنظام الدفع الآجل للمشترين بعد توفر حجم معاملات كافٍ.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="risks">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">المخاطر الرئيسية</span>
+      <h2>عقبات صريحة، لا نتجاهلها</h2>
+    </div>
+    <div class="risk-grid reveal">
+      <div class="risk-card"><h3>استقطاب جانب العرض</h3><p>التحقق من المصانع وضمها عمل بطيء ومكثّف العلاقات — هذا هو الخندق التنافسي الحقيقي، والعقبة الحقيقية.</p></div>
+      <div class="risk-card"><h3>كثافة رأس المال</h3><p>هذا بناء ممول متعدد السنوات (لوجستيات + بنية ثقة + استقطاب عرض) — وليس مشروعاً جانبياً.</p></div>
+      <div class="risk-card"><h3>وقت المؤسس</h3><p>يتطلب شريكاً مؤسساً متفرغاً بالكامل لعلاقات جانب العرض بينما تُدار الاستراتيجية جزئياً.</p></div>
+      <div class="risk-card"><h3>التعقيد التنظيمي</h3><p>المدفوعات عبر الحدود تتطلب ترخيصاً أو شريكاً مرخصاً (مثل سداد أو PayTabs) — بناء بنك خارج النطاق.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="ask">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">المطلوب</span>
+      <h2>التحقق أولاً. ثم البناء.</h2>
+    </div>
+    <div class="ask-list reveal">
+      <div class="ask-card"><span class="mono">01 — الوقت</span><p>شهر إلى شهرين لإجراء مقابلات تحقق مع المشترين والمصانع في السعودية والإمارات لقطاع الأغذية.</p></div>
+      <div class="ask-card"><span class="mono">02 — الفريق</span><p>شريك مؤسس أو موظف مبكر متفرغ لاستقطاب جانب العرض (المصانع).</p></div>
+      <div class="ask-card"><span class="mono">03 — التمويل</span><p>تمويل أولي (150-300 ألف دولار) بعد التحقق، لتمويل النسخة الأولى وضم أول 50 مصنعاً.</p></div>
+    </div>
+    <p class="closing reveal">سوق سينا — نبني <span class="brass">طبقة الثقة</span> لممر التجارة القادم في المنطقة.</p>
+  </div>
+</section>
+
+<footer>سوق سينا · عرض تقديمي سرّي · SOUQ SINA © 2026</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold:0.15 });
+  els.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
