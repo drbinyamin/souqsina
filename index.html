@@ -10,7 +10,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<link rel="stylesheet" href="app.css?v=4">
+<link rel="stylesheet" href="app.css?v=5">
 <style>
   body{ background:var(--paper); }
 
@@ -121,8 +121,8 @@
 <div class="pub-topnav">
   <a href="index.html" class="brand"><img src="logo.svg?v=4"><span>سوق سينا</span></a>
   <div class="search">
-    <input type="text" placeholder="ابحث عن منتج، مصنع، أو فئة...">
-    <button><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+    <input type="text" id="home-q" placeholder="ابحث عن منتج، مصنع، أو فئة..." onkeydown="if(event.key==='Enter') goSearch()">
+    <button onclick="goSearch()"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
   </div>
   <div class="actions">
     <a href="login.html" class="btn btn-sm">تسجيل الدخول</a>
@@ -298,5 +298,11 @@
   </div>
 </footer>
 
+<script>
+  function goSearch(){
+    const q = document.getElementById('home-q').value.trim();
+    location.href = q ? 'search-results.html?q=' + encodeURIComponent(q) : 'search-results.html';
+  }
+</script>
 </body>
 </html>

@@ -10,7 +10,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<link rel="stylesheet" href="app.css?v=4">
+<link rel="stylesheet" href="app.css?v=5">
 </head>
 <body>
 <div>
@@ -18,10 +18,11 @@
     <div class="topnav">
       <a href="buyer-dashboard.html" class="brand"><img src="logo.svg?v=4"><span>سوق سينا</span></a>
       <div class="search">
-        <input type="text" placeholder="ابحث عن منتج، مصنع، أو فئة...">
-        <button><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+        <input type="text" id="dash-q" placeholder="ابحث عن منتج، مصنع، أو فئة..." onkeydown="if(event.key==='Enter') goSearch()">
+        <button onclick="goSearch()"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
       </div>
       <div class="nav-links">
+        <a href="search-results.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>تصفّح المنتجات</a>
         <a href="rfq-new.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg>طلب عرض سعر</a>
         <a href="rfq-detail.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>طلباتي</a>
         <div class="acc-menu">
@@ -118,6 +119,10 @@
   </main>
 </div>
 <script>
+  function goSearch(){
+    const q = document.getElementById('dash-q').value.trim();
+    location.href = q ? 'search-results.html?q=' + encodeURIComponent(q) : 'search-results.html';
+  }
   function toggleAccMenu(e){
     e.stopPropagation();
     document.getElementById('acc-dropdown').classList.toggle('open');
