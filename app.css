@@ -195,6 +195,26 @@ input:focus, select:focus, textarea:focus{ outline:none; border-color:var(--bras
 .chip.active{ background:var(--navy-deep); border-color:var(--navy-deep); color:#fff; }
 .chip:hover{ border-color:var(--brass); }
 
+/* ---------- ACCOUNT DROPDOWN (Alibaba-style "My Account" menu) ---------- */
+.acc-menu{ position:relative; }
+.acc-trigger{ cursor:pointer; display:flex; align-items:center; gap:6px; }
+.acc-dropdown{
+  position:absolute; top:calc(100% + 12px); left:0; background:var(--white);
+  border:1px solid var(--line); border-radius:8px; box-shadow:0 16px 34px -12px rgba(15,42,74,0.25);
+  min-width:200px; padding:8px; display:none; z-index:60;
+}
+.acc-dropdown.open{ display:block; }
+.acc-dropdown a{
+  display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:6px;
+  font-size:13.5px; color:var(--ink);
+}
+.acc-dropdown a:hover{ background:var(--paper-2); }
+.acc-dropdown a svg{ width:16px; height:16px; color:var(--slate); flex-shrink:0; }
+.acc-dropdown .divider{ height:1px; background:var(--line); margin:6px 4px; }
+.acc-dropdown .acc-head{ padding:8px 12px 10px; border-bottom:1px solid var(--line); margin-bottom:6px; }
+.acc-dropdown .acc-head .name{ font-size:13.5px; font-weight:600; color:var(--navy-deep); }
+.acc-dropdown .acc-head .sub{ font-size:11.5px; color:var(--slate); margin-top:2px; }
+
 /* ---------- MARKETPLACE PRODUCT CARD v2 ---------- */
 .pcard{
   background:var(--white); border:1px solid var(--line); border-radius:10px; overflow:hidden;

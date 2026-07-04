@@ -7,6 +7,9 @@
 <link rel="icon" type="image/svg+xml" href="logo.svg?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4">
 <link rel="apple-touch-icon" href="favicon-180.png?v=4">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <link rel="stylesheet" href="app.css?v=4">
 </head>
 <body>
@@ -20,7 +23,30 @@
       </div>
       <div class="nav-links">
         <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg>ملف المصنع</a>
-        <a href="account-settings.html?role=seller" title="إعدادات الحساب"><div class="sb-avatar" style="width:30px;height:30px;font-size:12px;">خت</div></a>
+        <div class="acc-menu">
+          <div class="acc-trigger" onclick="toggleAccMenu(event)">
+            <div class="sb-avatar" style="width:30px;height:30px;font-size:12px;">خت</div>
+          </div>
+          <div class="acc-dropdown" id="acc-dropdown">
+            <div class="acc-head">
+              <div class="name">مصنع الخليج للتغليف</div>
+              <div class="sub">بائع · موثّق ✓</div>
+            </div>
+            <a href="account-settings.html?role=seller">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+              إعدادات الحساب
+            </a>
+            <a href="seller-dashboard.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg>
+              منتجاتي
+            </a>
+            <div class="divider"></div>
+            <a href="index.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+              تسجيل الخروج
+            </a>
+          </div>
+        </div>
       </div>
     </div>
     <div style="padding:34px 40px;">
@@ -79,5 +105,15 @@
     </div>
   </main>
 </div>
+<script>
+  function toggleAccMenu(e){
+    e.stopPropagation();
+    document.getElementById('acc-dropdown').classList.toggle('open');
+  }
+  document.addEventListener('click', ()=>{
+    const d = document.getElementById('acc-dropdown');
+    if(d) d.classList.remove('open');
+  });
+</script>
 </body>
 </html>
