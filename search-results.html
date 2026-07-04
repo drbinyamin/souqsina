@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تصفّح المنتجات — سوق سينا</title>
+<link rel="stylesheet" href="app.css">
+<style>
+  body{ background:var(--paper); }
+  .pub-topnav{ display:flex; align-items:center; gap:22px; background:var(--white); border-bottom:1px solid var(--line); padding:14px 32px; position:sticky; top:0; z-index:50; }
+  .pub-topnav .brand{ display:flex; align-items:center; gap:9px; flex-shrink:0; }
+  .pub-topnav .brand img{ width:32px; height:32px; }
+  .pub-topnav .brand span{ font-family:'Markazi Text',serif; font-weight:700; font-size:20px; color:var(--navy-deep); }
+  .pub-topnav .search{ flex:1; max-width:560px; display:flex; align-items:center; border:1.5px solid var(--navy-deep); border-radius:6px; overflow:hidden; }
+  .pub-topnav .search input{ border:none; flex:1; padding:10px 14px; font-size:14px; }
+  .pub-topnav .search input:focus{ box-shadow:none; }
+  .pub-topnav .search button{ background:var(--brass); border:none; color:#fff; padding:0 20px; height:41px; cursor:pointer; }
+  .pub-topnav .actions{ display:flex; gap:10px; margin-right:auto; }
+  .layout{ max-width:1180px; margin:0 auto; padding:28px 32px 70px; display:grid; grid-template-columns:250px 1fr; gap:26px; }
+  .results-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
+  .results-head h1{ font-size:21px; }
+  .results-head .count{ font-size:13.5px; color:var(--slate); }
+  .sort-select{ width:auto; padding:9px 14px; font-size:13.5px; }
+  .results-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  @media (max-width:900px){ .layout{ grid-template-columns:1fr; } .results-grid{ grid-template-columns:1fr 1fr; } .pub-topnav .search{ display:none; } }
+</style>
+</head>
+<body>
+
+<div class="pub-topnav">
+  <a href="index.html" class="brand"><img src="logo.svg"><span>سوق سينا</span></a>
+  <div class="search">
+    <input type="text" id="q" placeholder="ابحث عن منتج، مصنع، أو فئة...">
+    <button onclick="doSearch()"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+  </div>
+  <div class="actions">
+    <a href="login.html" class="btn btn-sm">تسجيل الدخول</a>
+    <a href="login.html" class="btn btn-sm btn-brass">إنشاء حساب</a>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="filters" style="height:fit-content;">
+    <div class="filter-group">
+      <h4>الفئة</h4>
+      <label class="filter-opt"><input type="checkbox" checked> تغليف الأغذية</label>
+      <label class="filter-opt"><input type="checkbox"> بلاستيك وصناعات مرنة</label>
+      <label class="filter-opt"><input type="checkbox"> مواد بناء</label>
+      <label class="filter-opt"><input type="checkbox"> ورق وكرتون</label>
+      <label class="filter-opt"><input type="checkbox"> زجاج وتعبئة</label>
+    </div>
+    <div class="filter-group">
+      <h4>الموقع</h4>
+      <label class="filter-opt"><input type="checkbox"> السعودية</label>
+      <label class="filter-opt"><input type="checkbox"> مصر</label>
+      <label class="filter-opt"><input type="checkbox"> الإمارات</label>
+    </div>
+    <div class="filter-group">
+      <h4>الحد الأدنى للطلب</h4>
+      <label class="filter-opt"><input type="radio" name="moq"> أقل من 5,000</label>
+      <label class="filter-opt"><input type="radio" name="moq"> 5,000 – 50,000</label>
+      <label class="filter-opt"><input type="radio" name="moq"> أكثر من 50,000</label>
+    </div>
+    <div class="filter-group">
+      <h4>حالة المورّد</h4>
+      <label class="filter-opt"><input type="checkbox" checked> موثّق فقط</label>
+    </div>
+  </aside>
+
+  <main>
+    <div class="crumb"><a href="index.html">الرئيسية</a><span class="sep">/</span><span class="current">تغليف الأغذية</span></div>
+    <div class="results-head">
+      <div>
+        <h1>تغليف الأغذية</h1>
+        <div class="count">126 منتجاً من 34 مورّداً موثّقاً</div>
+      </div>
+      <select class="sort-select">
+        <option>الأكثر صلة</option>
+        <option>الأقل سعراً</option>
+        <option>الأعلى تقييماً</option>
+        <option>الأحدث</option>
+      </select>
+    </div>
+
+    <div class="results-grid">
+      <a class="pcard" href="product-detail.html?id=1" style="text-decoration:none;">
+        <div class="pcard-thumb" style="--tint:linear-gradient(135deg,#E7DCC3,#F5F1E8);">
+          <span class="pcard-ribbon">الأكثر طلباً</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="7" width="18" height="13" rx="1"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-title">علب تغليف كرتونية مموجة — مقاسات مخصصة</div>
+          <div class="pcard-rating"><span class="stars">★★★★★</span> 4.8 (126)</div>
+          <div class="pcard-supplier">مصنع الخليج للتغليف · الدمام <span class="badge badge-brass" style="padding:2px 8px; font-size:10.5px;">موثّق</span></div>
+          <div class="pcard-price">1.35–1.80 ر.س <span>/ الوحدة</span></div>
+          <div class="pcard-foot"><span class="pcard-moq">الحد الأدنى: 10,000 وحدة</span></div>
+        </div>
+      </a>
+      <a class="pcard" href="product-detail.html?id=2" style="text-decoration:none;">
+        <div class="pcard-thumb" style="--tint:linear-gradient(135deg,#DCE3E7,#F5F1E8);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 8h16M4 16h16M8 4v16"/></svg>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-title">أكياس بلاستيكية قابلة لإعادة التدوير</div>
+          <div class="pcard-rating"><span class="stars">★★★★★</span> 4.6 (203)</div>
+          <div class="pcard-supplier">شركة النيل للبلاستيك · القاهرة <span class="badge badge-brass" style="padding:2px 8px; font-size:10.5px;">موثّق</span></div>
+          <div class="pcard-price">0.09–0.14 ر.س <span>/ الوحدة</span></div>
+          <div class="pcard-foot"><span class="pcard-moq">الحد الأدنى: 50,000 وحدة</span></div>
+        </div>
+      </a>
+      <a class="pcard" href="product-detail.html?id=3" style="text-decoration:none;">
+        <div class="pcard-thumb" style="--tint:linear-gradient(135deg,#DDE7DD,#F5F1E8);">
+          <span class="pcard-ribbon">جديد</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 3h6l1 5-4 4-4-4z"/><path d="M8 12l-2 9h12l-2-9"/></svg>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-title">عبوات زجاجية للمربى والمخللات 250مل</div>
+          <div class="pcard-rating"><span class="stars">★★★★★</span> 4.9 (58)</div>
+          <div class="pcard-supplier">مصانع الوسيط الزجاجية · جدة <span class="badge badge-brass" style="padding:2px 8px; font-size:10.5px;">موثّق</span></div>
+          <div class="pcard-price">0.65–0.85 ر.س <span>/ الوحدة</span></div>
+          <div class="pcard-foot"><span class="pcard-moq">الحد الأدنى: 5,000 وحدة</span></div>
+        </div>
+      </a>
+      <a class="pcard" href="product-detail.html?id=4" style="text-decoration:none;">
+        <div class="pcard-thumb" style="--tint:linear-gradient(135deg,#E7DCC3,#F5F1E8);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16M9 4v16"/></svg>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-title">علب بيتزا كرتونية مقاومة للزيوت</div>
+          <div class="pcard-rating"><span class="stars">★★★★☆</span> 4.4 (34)</div>
+          <div class="pcard-supplier">مصنع الرياض للورق والكرتون · الرياض <span class="badge badge-brass" style="padding:2px 8px; font-size:10.5px;">موثّق</span></div>
+          <div class="pcard-price">0.95–1.20 ر.س <span>/ الوحدة</span></div>
+          <div class="pcard-foot"><span class="pcard-moq">الحد الأدنى: 8,000 وحدة</span></div>
+        </div>
+      </a>
+      <a class="pcard" href="product-detail.html?id=5" style="text-decoration:none;">
+        <div class="pcard-thumb" style="--tint:linear-gradient(135deg,#DCE3E7,#F5F1E8);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 7h18l-2 13H5z"/><path d="M9 7V5a3 3 0 016 0v2"/></svg>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-title">أكياس ورقية مقواة بمقبض — تغليف مطاعم</div>
+          <div class="pcard-rating"><span class="stars">★★★★☆</span> 4.3 (19)</div>
+          <div class="pcard-supplier">مصنع الخليج للتغليف · الدمام <span class="badge badge-brass" style="padding:2px 8px; font-size:10.5px;">موثّق</span></div>
+          <div class="pcard-price">0.22–0.31 ر.س <span>/ الوحدة</span></div>
+          <div class="pcard-foot"><span class="pcard-moq">الحد الأدنى: 20,000 وحدة</span></div>
+        </div>
+      </a>
+      <a class="pcard" href="product-detail.html?id=6" style="text-decoration:none;">
+        <div class="pcard-thumb" style="--tint:linear-gradient(135deg,#DDE7DD,#F5F1E8);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h3"/></svg>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-title">ملصقات ورقية مقاومة للماء والزيوت</div>
+          <div class="pcard-rating"><span class="stars">★★★★★</span> 4.7 (41)</div>
+          <div class="pcard-supplier">شركة النيل للبلاستيك · القاهرة <span class="badge badge-brass" style="padding:2px 8px; font-size:10.5px;">موثّق</span></div>
+          <div class="pcard-price">0.05–0.08 ر.س <span>/ الوحدة</span></div>
+          <div class="pcard-foot"><span class="pcard-moq">الحد الأدنى: 100,000 وحدة</span></div>
+        </div>
+      </a>
+    </div>
+  </main>
+</div>
+
+<script>
+  function doSearch(){
+    const q = document.getElementById('q').value;
+    if(q) alert('نتائج البحث عن: ' + q + ' (نموذج تجريبي)');
+  }
+</script>
+</body>
+</html>
